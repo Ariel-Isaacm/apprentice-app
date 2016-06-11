@@ -1,3 +1,41 @@
 <div class="container">
-  asdasdas
+  <button style="float:right; margin:10px;" type="button" name="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i></button>
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>Nombre</th>
+      <th>Plataforma</th>
+      <th>Price</th>
+      <th>Rating</th>
+      <th>Score</th>
+      <th>Género</th>
+      <th colspan="2">Actions</th>
+    </tr>
+
+    <tr ng-repeat="game in games">
+      <td>{{game.name}}</td>
+      <td>{{game.platform}}</td>
+      <td>{{game.price | currency}}</td>
+      <td>{{game.rating}}</td>
+      <td>{{game.score}}</td>
+      <td>{{game.genre}}</td>
+      <td><button ng-click="modifyGame(game)" class="btn btn-info" type="button">
+        <i class="glyphicon glyphicon-pencil"></i>
+      </button></td>
+      <td>
+        <button ng-click="deleteGame(game)" type="button" class="btn btn-danger">
+           <i class="glyphicon glyphicon-remove"></i></button>
+      </td>
+    </tr>
+  </table>
+
+  <div class="container" ng-show="isModifying">
+    <form class="">
+      <div class="form-control">
+          <label>Name: </label><input type="text" ng-model="thisGame.name">
+      </div>
+      <button ng-click="saveGame()" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> Guardar</button>
+
+    </form>
+  </div>
+
 </div>
